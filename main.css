@@ -1,0 +1,51 @@
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #0D5D56;
+  color: #8FD5A6;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  text-align: center;
+  font-family: Play;
+}
+
+header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 33vh;
+}
+
+h1 {
+  font-size: 45px;
+  margin: 0;
+}
+
+p {
+  font-size: 25px;
+}
+
+.button {
+  width: 20%;
+  padding: 10px 0 10px 0;
+  margin: 0 15px 0 15px;
+  font-family: Play;
+  font-size: 25px;
+  background: #8FD5A6;
+  border: none;
+  border-radius: 5px;
+  color: #031211;
+}
+
+.button:hover {
+  cursor: pointer;
+  background: #329F5B;
+}
+
+.hidden {
+  display: none;
+}

@@ -1,67 +1,33 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>Page Title</title>
-        <meta charset="UTF-8"/>
-    </head>
-    <body>
-    <script>
-        
-        function computerPlay() {
-            const moves = ['Rock', 'Paper', 'Scissors'];
-            return moves[Math.floor(Math.random() * moves.length)];
-        }
-
-        function playRound(playerSelection, computerSelection) {
-            let playerSelectionLC = playerSelection.toLowerCase();
-            let computerSelectionLC = computerSelection.toLowerCase();
-
-            let playerWon = (playerSelectionLC === 'rock' && computerSelectionLC === 'scissors')
-                || (playerSelectionLC === 'paper' && computerSelectionLC === 'rock')
-                || (playerSelectionLC === 'scissors' && computerSelectionLC === 'paper');
-
-            if (playerSelectionLC === computerSelectionLC) {
-                return `Tie! You and the computer chose ${computerSelection}`;
-            }   else if (playerWon) {
-                return `You Win! ${playerSelection} beats ${computerSelection}`;
-            } else {
-                return `You Lose! ${playerSelection} does not beat ${computerSelection}`;
-            }
-        }
-
-        function game() {
-            let winCount = 0;
-            let lossCount = 0;
-            let tieCount = 0;
-
-            console.log("Time to play Rock, Paper, Scissors! (five rounds)");
-
-            for (let round = 0; round < 5; round++) {
-                let playerSelection = prompt("Choose your action (Rock, Paper, Scissors):\n");
-                let result = playRound(playerSelection, computerPlay());
-                console.log(result);
-
-                if (result.includes('Win')) {
-                    winCount += 1;
-                } else if (result.includes('Lose')) {
-                    lossCount += 1;
-                } else {
-                    tieCount += 1;
-                }
-
-                
-            }
-
-            if (winCount > lossCount) {
-                console.log("\nYou won the game!");
-            } else if (lossCount > winCount) {
-                console.log("\nSorry, you lost the game.");
-            } else {
-                console.log("\nYou tied the game.");
-            }
-
-            console.log(`Overall game statistics: Wins-${winCount}, Losses-${lossCount}, Ties-${tieCount}`);
-        }
-    </script>
-    </body>
+  <head>
+    <title>Page Title</title>
+    <meta charset="UTF-8"/>
+    <link href="main.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Play&display=swap" rel="stylesheet">
+    <script src="gameplay.js" defer></script>
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <h1>Let's play a game of Rock, Paper, Scissors!</h1>
+        <p>(First player to 5 wins)</p>
+      </header>
+      <main>
+        <p class="instruction">Choose your action:</p>
+        <div class="game-buttons">
+          <button class="button" type="button" name="Rock">Rock</button>
+          <button class="button" type="button" name="Paper">Paper</button>
+          <button class="button" type="button" name="Scissors">Scissors</button>
+        </div>
+        <div class="results">
+        </div>
+        <div class="reset hidden">
+          <button class="button" type="button" name="reset">Play Again</button>
+        </div>
+      </main>
+    </div>
+  </body>
 </html>
